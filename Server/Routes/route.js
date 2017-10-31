@@ -9,15 +9,16 @@ var mongoose = require('mongoose');
 
 module.exports = function(router){
     
-//add appointment entery to the database http://localhost:port/api/add/appointment
-router.post("/add/appointment", (req, res) => {
+//add appointment entery to the database http://localhost:port/api/appointments/addAppointment
+router.post("/addAppointment", (req, res) => {
     var myData = new Appointment(req.body);
-    myData.save()
-    .then(item => {
-    res.send("item saved to database");
-    })
-    .catch(err => {
-    res.status(400).send("unable to save to database");
+
+    myData.save(function(err){
+        if (err) {
+            res.json({success: 'false', message: 'not able to provide appointment'});
+        } else {
+            res.json({success: 'true', message: 'appointment is booked!'});
+        }
     });
    });
 
