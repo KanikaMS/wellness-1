@@ -20,7 +20,7 @@ module.exports = function(router){
 
          if (req.body.username == null || req.body.username == '' || req.body.password == null || req.body.password == '' || req.body.email == null || req.body.email == ''
         || req.body.doctor_id == null || req.body.doctor_id == '' || req.body.contact_number == null || req.body.contact_number == ''){
-            res.send({success: 'false',message: 'Ensure username, email and password were provided'});
+            res.json({success: 'false',message: 'Ensure username, email and password were provided'});
         } else {
         user.save(function(err){
             if (err) {
