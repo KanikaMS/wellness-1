@@ -4,8 +4,8 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var router = express.Router();
-var appRoutes = require('./Server/Routes/api')(router);
-var spareRoutes = require('./Server/Routes/route')(router);
+var appRoutes = require('./Server/Routes/doctor')(router);
+var spareRoutes = require('./Server/Routes/appointment')(router);
 var path = require('path');
 
 app.use(morgan('dev'));
