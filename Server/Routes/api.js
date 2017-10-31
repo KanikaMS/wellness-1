@@ -18,20 +18,20 @@ module.exports = function(router){
         user.doctor_id= req.body.doctor_id;
         user.contact_number= req.body.contact_number;
 
-        if (req.body.username == null || req.body.username == '' || req.body.password == null || req.body.password == '' || req.body.email == null || req.body.email == ''
+         if (req.body.username == null || req.body.username == '' || req.body.password == null || req.body.password == '' || req.body.email == null || req.body.email == ''
         || req.body.doctor_id == null || req.body.doctor_id == '' || req.body.contact_number == null || req.body.contact_number == ''){
-            res.send('Ensure username, email and password were provided');
+            res.send({success: 'false',message: 'Ensure username, email and password were provided'});
         } else {
         user.save(function(err){
             if (err) {
-                res.send('Username or email already exists!');
+                res.json({success: 'false',message: 'Username or email already exists!'});
             } else {
-                res.send('user created');
+                res.json({success: 'true',message: 'User created'});
             }
         });
     }
         
-    }); 
+    });  
 
 
       //doctors login http://localhost:port/api/authenticate
