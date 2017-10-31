@@ -14,7 +14,7 @@ router.post("/addAppointment", (req, res) => {
     var myData = new Appointment(req.body);
 
     myData.save(function(err){
-        if (err) {
+        if (err || !myData) {
             res.json({success: 'false', message: 'not able to provide appointment'});
         } else {
             res.json({success: 'true', message: 'appointment is booked!'});
