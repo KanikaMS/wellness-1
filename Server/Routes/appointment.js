@@ -38,7 +38,7 @@ router.post("/addAppointment", (req, res) => {
         
 		Appointment.find({doctor_id: req.params.id}, function(err, appointments) {
             if(!err){ 
-                res.status(400).json(appointments);
+                res.json(appointments);
                 
             } else {
                 res.json({success: 'false' ,message: 'could not retrieve data'});
