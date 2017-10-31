@@ -12,8 +12,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-app.use('/api',appRoutes);
-app.use('/api',spareRoutes);
+app.use('/api/accounts',appRoutes);
+app.use('/api/appointments',spareRoutes);
 
 
 mongoose.Promise = global.Promise;
