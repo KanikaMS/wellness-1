@@ -13,13 +13,22 @@ module.exports = function(router){
 router.post("/addAppointment", (req, res) => {
     var myData = new Appointment(req.body);
 
-    myData.save(function(err){
-        if (err || !myData) {
-            res.json({success: 'false', message: 'not able to provide appointment'});
-        } else {
-            res.json({success: 'true', message: 'appointment is booked!'});
+     // check if variable exists or not
+    if (req.body.patientname == null || req.body.patientname ==''|| req.body.age == null || req.body.age ==''||
+    req.body.gender == null || req.body.gender ==''|| req.body.date == null || req.body.date ==''|| 
+    req.body.time == null || req.body.time ==''|| req.body.doctor_id == null || req.body.doctor_id ==''){
+        res.json({success: 'false',message: 'Ensure all details  were provided'});
+    } else {
+   
+            myData.save(function(err){
+                if (err || !myData) {
+                    res.json({success: 'false', message: 'not able to provide appointment'});
+                } else {
+                    res.json({success: 'true', message: 'appointment is booked!'});
+                }
+            });
+  
         }
-    });
    });
 
 
