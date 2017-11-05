@@ -9,7 +9,8 @@ var DoctorSchema = new Schema({
     password: {type: String, required: true},
     email: {type: String, required: true, lowercase: true, unique: true},
     doctor_id: {type: String, required: true},
-    contact_number: {type: String, unique: true}
+    contact_number: {type: String, unique: true},
+    doctor_qualification: {type: String}
     
 });
 
