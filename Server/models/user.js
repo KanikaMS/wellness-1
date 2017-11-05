@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 
 var PatientSchema = new Schema({
-
+    username: {type: String, required: true}, 
     name: {
         firstName: {type: String, required: true},
         middleName: {type: String, required: true},
