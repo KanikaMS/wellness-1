@@ -10,7 +10,14 @@ var DoctorSchema = new Schema({
     email: {type: String, required: true, lowercase: true, unique: true},
     doctor_id: {type: String, required: true},
     contact_number: {type: String, unique: true},
-    doctor_qualification: {type: String}
+    doctor_qualification: {type: String},
+    experience: {
+                 from: String,
+                 to: String,
+                 hospital: String,
+                 post: String,
+                 description: String
+                }
     
 });
 
