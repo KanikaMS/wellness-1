@@ -20,13 +20,13 @@ var patientSchema = new Schema({
             zipCode: String 
             },
     occupation: String,
-    pDetails: {
+    patient_Details: {
                 patient_height: String,
                 patient_weight: String,
                 patient_maritaiStatus: String,
-                patient_Smoking: String,
+                patient_Smoking_status: String,
                 patient_Drinking_status: String,
-                pallergy: String
+                patient_allergy: String
               },
     responsible_person: {
                            name: String,
