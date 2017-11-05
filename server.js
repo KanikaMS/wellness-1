@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var router = express.Router();
 var appRoutes = require('./Server/Routes/doctor')(router);
 var spareRoutes = require('./Server/Routes/appointment')(router);
+var patientRoutes = require('./Server/Routes/user')(router);
 var path = require('path');
 
 app.use(morgan('dev'));
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use('/api/accounts',appRoutes);
 app.use('/api/appointments',spareRoutes);
-
+app.use('/api/patient',patientRoutes);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/wellness', function(err){
