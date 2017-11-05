@@ -10,7 +10,7 @@ var patientSchema = new Schema({
     gender: {type: String, required: true},
     dob: {type: Date, required: true},
     contactNumber: {type: Number, required: true},
-    email: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
     address: {
             houseNumber: String,
             street: String,
@@ -39,15 +39,15 @@ var patientSchema = new Schema({
 
 
 patientSchema.pre('save', function(next){
-    var user= this;
+    var patient= this;
     bcrypt.hash(user.password,null,null,function(err, hash){
         if (err) return next(err);
-        user.password = hash;
+        patient.password = hash;
         next();
     });
     bcrypt.hash(user.contactNumber,null,null,function(err, hash){
         if (err) return next(err);
-        user.contactNumber = hash;
+        patient.contactNumber = hash;
         next();
     });
 
