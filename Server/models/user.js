@@ -40,12 +40,12 @@ var patientSchema = new Schema({
 
 patientSchema.pre('save', function(next){
     var patient= this;
-    bcrypt.hash(user.password,null,null,function(err, hash){
+    bcrypt.hash(patient.password,null,null,function(err, hash){
         if (err) return next(err);
         patient.password = hash;
         next();
     });
-    bcrypt.hash(user.contactNumber,null,null,function(err, hash){
+    bcrypt.hash(patient.contactNumber,null,null,function(err, hash){
         if (err) return next(err);
         patient.contactNumber = hash;
         next();
