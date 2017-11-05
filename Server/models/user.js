@@ -7,8 +7,8 @@ var PatientSchema = new Schema({
 
     name: {
         firstName: {type: String, required: true},
-        middleName: String,
-        lastName: {type: String, required: true},
+        middleName: {type: String, required: true},
+        lastName: {type: String, required: true}
         },
 
     password: {type: String, required: true},   
